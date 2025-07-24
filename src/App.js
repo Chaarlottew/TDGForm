@@ -1,15 +1,18 @@
-import "./App.css";
+import React from "react";
 import formSpec from "./data/formSpec.json";
 import FormRender from "./components/formRender";
-import React from "react";
+import "./index.css";
 
 function App() {
-  // render the dynamic form using a form rendered
-  // design later just get the scaffold done
+  const handleSubmit = (data) => {
+    // Simply submit everything inputted as a JSON output
+    console.log("Submitted JSON:", JSON.stringify(data, null, 2));
+  };
+
   return (
     <div>
-      <h1>hello</h1>
-      <FormRender formSpec={formSpec} />
+      {/** Call Form Render */}
+      <FormRender formSpec={formSpec} onSubmit={handleSubmit} />
     </div>
   );
 }
